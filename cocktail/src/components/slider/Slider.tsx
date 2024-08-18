@@ -32,7 +32,7 @@ export const Slider: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex w-screen bg-purple-500 h-96">
+    <div className="flex w-screen  h-96">
       <Swiper
         className="flex  mb-10 mt-20 py-10"
         modules={[Autoplay]}
