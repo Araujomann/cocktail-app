@@ -3,135 +3,132 @@ import { useState } from "react";
 import { GoHeart, GoHeartFill } from "react-icons/go";
 
 interface Props {
-    id: string;
-    img: string;
-    name: string;
-    alcoholic: string;
-    instructions: string;
-    ingredients: string;
-    onClose: () => void;
-    isFavoritePage?: boolean;
+  id: string;
+  img: string;
+  name: string;
+  alcoholic: string;
+  instructions: string;
+  ingredients: string;
+  onClose: () => void;
+  isFavoritePage?: boolean;
 }
 
 interface Cocktail {
-    idDrink: string;
-    strDrink: string;
-    strDrinkThumb: string;
+  idDrink: string;
+  strDrink: string;
+  strDrinkThumb: string;
 }
 
 export const DrinkModal: React.FC<Props> = ({
-    id,
-    img,
-    name,
-    instructions,
-    ingredients,
-    alcoholic,
-    onClose,
+  id,
+  img,
+  name,
+  instructions,
+  ingredients,
+  alcoholic,
+  onClose,
 }) => {
-    const [isFavorite, setIsFavorite] = useState(() => {
-        const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-        console.log("lista de favoritos", favorites);
-        const isFav = favorites.some((drink: Cocktail) => {
-            console.log("dring:", drink.strDrink);
-            return drink.strDrink === name;
-        });
-
-        console.log("is fav", isFav, name);
-        return isFav;
+  const [isFavorite, setIsFavorite] = useState(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    console.log("lista de favoritos", favorites);
+    const isFav = favorites.some((drink: Cocktail) => {
+      console.log("dring:", drink.strDrink);
+      return drink.strDrink === name;
     });
 
-    const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.stopPropagation();
-    };
+    console.log("is fav", isFav, name);
+    return isFav;
+  });
 
-    const handleFavoriteClick = () => {
-        let updatedFavorites;
-        const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+  const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
 
-        console.log("estes são os favoritos até o momento: ", favorites);
+  const handleFavoriteClick = () => {
+    let updatedFavorites;
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-        if (isFavorite) {
-            console.log("era favorito e deixou de ser!");
-            updatedFavorites = favorites.filter(
-                (drink: Cocktail) => drink.strDrink !== name
-            );
-        } else {
-            console.log("esse agora é um favorito!");
-            updatedFavorites = [
-                ...favorites,
-                {
-                    idDrink: id,
-                    strDrink: name,
-                    strDrinkThumb: img,
-                },
-            ];
-            setIsFavorite(!isFavorite);
-        }
+    console.log("estes são os favoritos até o momento: ", favorites);
 
-        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-        setIsFavorite(!isFavorite);
-    };
+    if (isFavorite) {
+      console.log("era favorito e deixou de ser!");
+      updatedFavorites = favorites.filter(
+        (drink: Cocktail) => drink.strDrink !== name,
+      );
+    } else {
+      console.log("esse agora é um favorito!");
+      updatedFavorites = [
+        ...favorites,
+        {
+          idDrink: id,
+          strDrink: name,
+          strDrinkThumb: img,
+        },
+      ];
+      setIsFavorite(!isFavorite);
+    }
 
-    console.log("rendering is favorite", isFavorite);
-    return (
-        <>
-            <div
-                onClick={onClose}
-                className="fixed w-full h-full  bg-black/60 bg-rgba z-1000 top-0 left-0 flex items-center justify-center"
-            >
-                <div
-                    onClick={handleModalClick}
-                    className="relative flex flex-col text-center bg-white md:w-5/12 md:min-w-96 p-16 pb-8 md:pb-16 rounded-lg h-auto w-10/12"
-                >
-                    <span
-                        onClick={onClose}
-                        className="absolute text-slate-900 right-6 top-6 cursor-pointer"
-                    >
-                        <IoCloseOutline size={23} />
-                    </span>
-                    <img
-                        className="w-64 mx-auto rounded-md shadow-2xl"
-                        src={img}
-                    />
-                    <section className="mt-4">
-                        <div className="relative flex gap-3 place-content-center bg-purple-400">
-                            <h2 className="text-principalTitleColor font-sans font-bold text-3xl flex wrap w-72 m-auto place-content-center">
-                                {name}
-                            </h2>
-                            <span
-                                onClick={handleFavoriteClick}
-                                className="hidden md:block md:absolute bottom-0 md:right-0 cursor-pointer"
-                            >
-                                {isFavorite ? (
-                                    <GoHeartFill size={34} color="red" />
-                                ) : (
-                                    <GoHeart size={34} color="black" />
-                                )}
-                            </span>
-                        </div>
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    setIsFavorite(!isFavorite);
+  };
 
-                        <h3 className="text-secondTextColor m-2 font-semibold">
-                            {alcoholic}
-                        </h3>
-                        <p className="text-secondTextColor mb-4 max-h-72 overflow-auto">
-                            {instructions}
-                        </p>
-                        <p className="text-slate-800 text-left">
-                            <b>Ingredients:</b> {ingredients}
-                        </p>
-                    </section>
-
-                    <div className="md:hidden flex place-content-center mt-4">
-                        <span onClick={handleFavoriteClick}>
-                            {isFavorite ? (
-                                <GoHeartFill size={34} color="red" />
-                            ) : (
-                                <GoHeart size={34} color="black" />
-                            )}
-                        </span>
-                    </div>
-                </div>
+  console.log("rendering is favorite", isFavorite);
+  return (
+    <>
+      <div
+        onClick={onClose}
+        className="fixed w-full h-full  bg-black/60 bg-rgba z-1000 top-0 left-0 flex items-center justify-center"
+      >
+        <div
+          onClick={handleModalClick}
+          className="relative flex flex-col text-center bg-white md:w-5/12 md:min-w-96 p-16 pb-8 md:pb-16 rounded-lg h-auto w-10/12"
+        >
+          <span
+            onClick={onClose}
+            className="absolute text-slate-900 right-6 top-6 cursor-pointer"
+          >
+            <IoCloseOutline size={23} />
+          </span>
+          <img className="w-64 mx-auto rounded-md shadow-2xl" src={img} />
+          <section className="mt-4">
+            <div className="relative flex gap-3 place-content-center bg-purple-400">
+              <h2 className="text-principalTitleColor font-sans font-bold text-3xl flex wrap w-72 m-auto place-content-center">
+                {name}
+              </h2>
+              <span
+                onClick={handleFavoriteClick}
+                className="hidden md:block md:absolute bottom-0 md:right-0 cursor-pointer"
+              >
+                {isFavorite ? (
+                  <GoHeartFill size={34} color="red" />
+                ) : (
+                  <GoHeart size={34} color="black" />
+                )}
+              </span>
             </div>
-        </>
-    );
+
+            <h3 className="text-secondTextColor m-2 font-semibold">
+              {alcoholic}
+            </h3>
+            <p className="text-secondTextColor mb-4 max-h-72 overflow-auto">
+              {instructions}
+            </p>
+            <p className="text-slate-800 text-left">
+              <b>Ingredients:</b> {ingredients}
+            </p>
+          </section>
+
+          <div className="md:hidden flex place-content-center mt-4">
+            <span onClick={handleFavoriteClick}>
+              {isFavorite ? (
+                <GoHeartFill size={34} color="red" />
+              ) : (
+                <GoHeart size={34} color="black" />
+              )}
+            </span>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };

@@ -1,2 +1,1 @@
 export { Favorites } from "./Favorites";
-
