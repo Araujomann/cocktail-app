@@ -20,15 +20,15 @@ const routes: RouteObject[] = [
         element: <Home />,
       },
       {
-        path: "/favorites",
+        path: "favorites",
         element: <Favorites />,
       },
       {
-        path: "/results",
+        path: "results",
         element: <Results />,
       },
       {
-        path: "/category",
+        path: "category",
         element: <Category />,
       },
     ],
