@@ -91,7 +91,7 @@ export const DrinkModal: React.FC<Props> = ({
           </span>
           <img className="w-64 mx-auto rounded-md shadow-2xl" src={img} />
           <section className="mt-4">
-            <div className="relative flex gap-3 place-content-center bg-purple-400">
+            <div className="relative flex gap-3 place-content-center">
               <h2 className="text-principalTitleColor font-sans font-bold text-3xl flex wrap w-72 m-auto place-content-center">
                 {name}
               </h2>

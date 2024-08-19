@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { CategoryItem, Header } from "../../components";
+import { CategoryItem } from "../../components";
 import emptyCocktailGlass from "../../assets/emptyCocktailGlass.png";
 import { PuffLoader } from "react-spinners";
 
@@ -48,7 +48,6 @@ export const Favorites: React.FC = () => {
 
   return (
     <div className="w-screen min-h-screen h-screen overflow-x-hidden bg-bgCategory">
-      <Header />
       <div
         className="flex flex-col w-screen place-content-center h-60 md:h-96 px-5 md:pl-16 md:ml-4 gap-4
             leading-1"

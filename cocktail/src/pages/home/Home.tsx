@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { CategoriesModal } from "../../components";
 import { IoMdArrowDropright } from "react-icons/io";
 
-export const Home = () => {
+export const Home:React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [inputOpen, setInputOpen] = useState(false);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
