@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouteObject,
   RouterProvider,
+  HashRouter 
 } from "react-router-dom";
 
 const routes: RouteObject[] = [
