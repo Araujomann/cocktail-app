@@ -19,29 +19,33 @@ export const Results: React.FC = () => {
     useEffect(() => {
         if (location.state) {
             setDrinks(location.state.drinks);
-            setLoading(false);
+            if(location.state.drinks.length > 0) {
+                setLoading(false);
+            }
         }
     }, [location.state.drinks]);
 
-   if(drinks) return (
-        <div className="w-screen h-screen flex flex-col overflow-x-hidden items-center">
+    return (
+        <>
             {loading && (
                 <div className="absolute flex justify-center items-center h-screen w-screen bg-bgPage">
                     <PuffLoader color="#2e2e2e" loading={loading} size={130} />
                 </div>
             )}
-
-            <div className="bg-bgCategory flex flex-col flex-wrap items-center justify-center w-screen ">
-                <div className="flex flex-wrap items-center justify-center gap-2 mt-12 w-full">
-                    {drinks.map((drink, index) => (
-                        <CategoryItem
-                            index={index}
-                            cocktail={drink}
-                            isFavoritePage={false}
-                        />
-                    ))}
+            <div className="w-screen h-screen flex flex-col overflow-x-hidden items-center">
+                <div className="bg-bgCategory flex flex-col flex-wrap items-center justify-center w-screen ">
+                    <div className="flex flex-wrap items-center justify-center gap-2 mt-12 w-full">
+                        {
+                            drinks.map((drink, index) => (
+                                <CategoryItem
+                                    index={index}
+                                    cocktail={drink}
+                                    isFavoritePage={false}
+                                />
+                            ))}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
