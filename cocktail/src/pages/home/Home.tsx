@@ -32,10 +32,10 @@ export const Home:React.FC = () => {
   };
 
   return (
-    <div className=" relative flex flex-col w-screen h-screen overflow-hidden">
+    <div className="relative flex flex-col w-screen h-screen overflow-hidden">
       <div className="bg-bgPage flex flex-col place-content-center w-full md:h-80  p-10 gap-10 md:gap-4">
         <div className="flex flex-col items-center justify-center md:gap-1">
-          <h1 className="text-5xl md:text-6xl font-serif text-principalTitleColor mt-1 whitespace-nowrap">
+          <h1 className="text-4xl md:text-6xl font-serif text-principalTitleColor mt-1 whitespace-nowrap">
             Cocktail Genius
           </h1>
           <h2 className="md:text-xl md:text-l text-secondTextColor font-sans text-center">

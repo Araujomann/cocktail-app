@@ -55,7 +55,7 @@ export const CategoriesModal: React.FC<Props> = ({
   return (
     <>
       <div
-        className="absolute z-50 top-14 bg-jet/60  p-2 flex flex-col items-center justify-center rounded-2xl gap-1 left-2/4"
+        className="absolute z-50 md:top-14 top-2 bg-jet/60  p-2 flex flex-col items-center justify-center rounded-2xl gap-1 left-2/4"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
