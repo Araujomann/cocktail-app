@@ -21,7 +21,7 @@ export const Button: React.FC<Props> = ({
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             onClick={action}
-            className=" hover:bg-hoverBg h-20 md:h-14 text-xl md:text-lg flex items-center justify-center rounded-full 
+            className=" hover:bg-hoverBg h-14 md:h-14 text-xl md:text-lg flex items-center justify-center rounded-full 
 "
         >
             {name}

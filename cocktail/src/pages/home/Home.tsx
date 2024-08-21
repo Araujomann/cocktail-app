@@ -38,7 +38,7 @@ export const Home:React.FC = () => {
           <h1 className="text-5xl md:text-6xl font-serif text-principalTitleColor mt-1 whitespace-nowrap">
             Cocktail Genius
           </h1>
-          <h2 className="text-xl md:text-l text-secondTextColor font-sans">
+          <h2 className="md:text-xl md:text-l text-secondTextColor font-sans text-center">
             Choose a category or select by name.
           </h2>
         </div>

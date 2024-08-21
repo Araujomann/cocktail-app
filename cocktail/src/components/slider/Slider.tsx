@@ -32,9 +32,9 @@ export const Slider: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex w-screen  h-96">
+    <div className="flex w-screen h-96">
       <Swiper
-        className="flex  mb-10 mt-20 py-10"
+        className="flex mb-10 mt-6 md:mt-20 py-10"
         modules={[Autoplay]}
         spaceBetween={10}
         slidesPerView={3}
@@ -70,7 +70,7 @@ export const Slider: React.FC = () => {
             <img
               src={drink.strDrinkThumb}
               alt="slide"
-              className="h-full object-fill rounded-2xl"
+              className=" object-fill rounded-2xl"
             />
           </SwiperSlide>
         ))}

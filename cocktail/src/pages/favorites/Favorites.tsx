@@ -66,7 +66,7 @@ export const Favorites: React.FC = () => {
                 </h3>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center w-screen min-h-28 gap-2">
+            <div className="flex flex-wrap items-center justify-center w-screen min-h-28 md:gap-2">
                 {favorites.map((drink, index) => (
                     <CategoryItem
                         cocktail={drink}

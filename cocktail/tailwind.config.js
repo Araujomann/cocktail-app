@@ -18,6 +18,12 @@ export default {
         jet: "#2D2D2A",
         pearl: "#E5DCC5",
       },
+      maxHeight: {
+        '128': '32rem', 
+        '144': '36rem', 
+        '160': '40rem',
+      
+      },
     },
   },
   plugins: [],

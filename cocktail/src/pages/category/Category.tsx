@@ -67,7 +67,7 @@ export const Category: React.FC = () => {
         </h3>
       </div>
 
-      <div className=" bg-red-300 flex flex-wrap items-center justify-center gap-2 w-full h-0">
+      <div className=" flex flex-wrap items-center justify-center gap-2 w-full h-0">
         {cocktailList.map((cocktail, index) => (
           <CategoryItem
             key={cocktail.idDrink}

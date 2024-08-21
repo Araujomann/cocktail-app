@@ -82,7 +82,7 @@ export const CategoryItem: React.FC<Props> = ({
   return (
     <>
       <div
-        className="flex flex-col w-48 h-64 hover:bg-pearl hover:cursor-pointer border-gray-900 rounded-md p-2 transition-all"
+        className="flex flex-col w-36 md:w-48 h- md:h-64  hover:bg-pearl hover:cursor-pointer border-gray-900 rounded-md p-2 transition-all"
         onClick={handleClick}
         key={index}
       >

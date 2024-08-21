@@ -81,7 +81,7 @@ export const DrinkModal: React.FC<Props> = ({
       >
         <div
           onClick={handleModalClick}
-          className="relative flex flex-col text-center bg-white md:w-5/12 md:min-w-96 p-16 pb-8 md:pb-16 rounded-lg h-auto w-10/12"
+          className="relative flex flex-col text-center bg-white max-h-144 md:max-h-screen md:h-auto  md:w-5/12 md:min-w-96 md:p-16 px-4 py-10 md:pb-16 rounded-lg"
         >
           <span
             onClick={onClose}
@@ -89,10 +89,10 @@ export const DrinkModal: React.FC<Props> = ({
           >
             <IoCloseOutline size={23} />
           </span>
-          <img className="w-64 mx-auto rounded-md shadow-2xl" src={img} />
+          <img className="size-7/12 md:w-64 mx-auto rounded-md shadow-2xl" src={img} />
           <section className="mt-4">
             <div className="relative flex gap-3 place-content-center">
-              <h2 className="text-principalTitleColor font-sans font-bold text-3xl flex wrap w-72 m-auto place-content-center">
+              <h2 className="text-principalTitleColor font-sans font-bold text-xl md:text-3xl flex wrap w-72 m-auto place-content-center">
                 {name}
               </h2>
               <span
@@ -107,13 +107,13 @@ export const DrinkModal: React.FC<Props> = ({
               </span>
             </div>
 
-            <h3 className="text-secondTextColor m-2 font-semibold">
+            <h3 className="text-secondTextColor m-2 font-semibold text-sm md:text-base">
               {alcoholic}
             </h3>
-            <p className="text-secondTextColor mb-4 max-h-72 overflow-auto">
+            <p className="text-secondTextColor mb-4 max-h-32 md:max-h-none  overflow-auto text-sm md:text-base">
               {instructions}
             </p>
-            <p className="text-slate-800 text-left">
+            <p className="text-slate-800 text-left text-sm md:text-base">
               <b>Ingredients:</b> {ingredients}
             </p>
           </section>
